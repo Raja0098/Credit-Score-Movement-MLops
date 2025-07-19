@@ -1,0 +1,14 @@
+# For data manipulation
+pandas
+
+# For machine learning model
+scikit-learn
+
+# For creating the API
+fastapi
+
+# For running the API server
+uvicorn[standard]
+
+# For data versioning with Google Cloud Storage
+dvc[gcs]

@@ -23,7 +23,7 @@ jobs:
           pip install pytest
 
       - name: Run Tests
-        run: pytest tests/
+        run: pytest test/train_test.py
 
       - name: Run Training Script
         run: python src/train.py

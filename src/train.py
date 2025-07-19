@@ -20,7 +20,7 @@ def train_model(df, features, target):
 if __name__ == "__main__":
     print("Loading data...")
     # Use your actual data file name if it's different
-    df = load_data('data/simulated_data.csv') 
+    df = load_data('data/credit_data.csv') 
     
     features = ['age', 'monthly_income', 'credit_score_t-1']
     target = 'total_credit_limit' # Replace with your actual target column

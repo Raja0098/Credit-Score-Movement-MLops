@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out your code
+      # 1. Check out your code from the repository
       - name: Checkout Repo
         uses: actions/checkout@v4
 
@@ -26,9 +26,11 @@ jobs:
           pip install pytest
 
       # 4. Run Tests with Pytest
-      # This change fixes the ModuleNotFoundError
+      # This explicitly adds the project root to Python's path
       - name: Run Tests
-        run: pytest
+        run: |
+          export PYTHONPATH=$PYTHONPATH:.
+          pytest test/
 
       # 5. Run the training script (only if tests pass)
       - name: Run Training Script

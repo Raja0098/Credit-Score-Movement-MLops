@@ -10,20 +10,20 @@ def train_model(df, features, target):
     """Trains a RandomForestClassifier model."""
     X = df[features]
     y = df[target]
-
+    
     model = RandomForestClassifier()
     model.fit(X, y)
     return model
 
-# The main block below only runs when you execute 'python src/train.py'
-# It does NOT run when the test file imports from it
+# This main block runs only when you execute 'python src/train.py'
 if __name__ == "__main__":
-    print("Loading data...")
-    # Use your actual data file name if it's different
+    
+    # Use your actual data file name
     df = load_data('data/credit_data.csv') 
     
+    # Your updated features and target
     features = ['age', 'monthly_income', 'credit_score_t-1']
-    target = 'total_credit_limit' # Replace with your actual target column
+    target = 'target_credit_score_movement'
 
     print("Training model...")
     model = train_model(df, features, target)

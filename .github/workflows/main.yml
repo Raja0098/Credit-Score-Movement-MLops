@@ -9,21 +9,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Check out your code
       - name: Checkout Repo
         uses: actions/checkout@v4
 
+      # 2. Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
+      # 3. Install all dependencies
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
           pip install pytest
 
+      # 4. Run Tests with Pytest
+      # This change fixes the ModuleNotFoundError
       - name: Run Tests
-        run: pytest test/train_test.py
+        run: pytest
 
+      # 5. Run the training script (only if tests pass)
       - name: Run Training Script
         run: python src/train.py

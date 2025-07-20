@@ -1,4 +1,4 @@
-name: Test and Run Training Script
+name: Test and Run Training Script Log Model
 
 on:
   push:
@@ -34,4 +34,4 @@ jobs:
 
       # 5. Run the training script (only if tests pass)
       - name: Run Training Script
-        run: python src/train.py
+        run: python src/train.py n_estimators 150

@@ -2,3 +2,16 @@ venv/
 __pycache__/
 *.pyc
 model.joblib
+/dvc_test.txt
+mlruns/
+model.joblib
+.dvc/cache/
+credit_cisk_artifacts_raja/
+mlruns/
+model.joblib
+credit_cisk_artifacts_raja/
+.dvc/cache/
+model.joblib
+model.joblib
+credit_cisk_artifacts_raja/
+.dvc/cache/

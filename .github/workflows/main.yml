@@ -1,4 +1,4 @@
-name: Test and Run Training Script Log Model
+name: Test and Run Training Script
 
 on:
   push:
@@ -9,29 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Check out your code from the repository
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      # 2. Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
-      # 3. Install all dependencies
+      # This step installs everything from requirements.txt, including mlflow
       - name: Install Dependencies
-        run: |
-          pip install -r requirements.txt
-          pip install pytest
+        run: pip install -r requirements.txt
 
-      # 4. Run Tests with Pytest
-      # This explicitly adds the project root to Python's path
       - name: Run Tests
         run: |
           export PYTHONPATH=$PYTHONPATH:.
           pytest test/
 
-      # 5. Run the training script (only if tests pass)
       - name: Run Training Script
-        run: python src/train.py n_estimators 150
+        run: python src/train.py

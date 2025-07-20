@@ -10,7 +10,6 @@ def test_data_loading():
     """
     Tests that the data loading function returns a pandas DataFrame.
     """
-    # We need a dummy csv file for the test to run in isolation
     dummy_data = "age,monthly_income,credit_score_t-1,total_credit_limit\n30,5000,700,50000"
     with open("dummy_data.csv", "w") as f:
         f.write(dummy_data)
@@ -24,7 +23,6 @@ def test_model_training():
     """
     Tests that the model training function returns a trained model object.
     """
-    # Create a dummy DataFrame for training
     data = {
         'age': [25, 30, 35],
         'monthly_income': [5000, 6000, 7000],
@@ -36,7 +34,8 @@ def test_model_training():
     features = ['age', 'monthly_income', 'credit_score_t-1']
     target = 'total_credit_limit'
     
-    model = train_model(df, features, target)
+    # FIX: Pass the missing arguments to the function call
+    model = train_model(df, features, target, n_estimators=10, random_state=42)
     
     # Assert that the output is a scikit-learn classifier
     assert isinstance(model, RandomForestClassifier)
